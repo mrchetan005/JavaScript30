@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Key Detection</title>
+		<script
+			type="text/javascript"
+			src="https://www.cornify.com/js/cornify.js"
+		></script>
+		<link rel="icon" href="https://fav.farm/🔥" />
+	</head>
+	<body>
+		<script>
+			const pressed = [];
+			const secretCode = [
+				"ArrowUp",
+				"ArrowDown",
+				"ArrowLeft",
+				"ArrowRight",
+				"Enter",
+			];
+			window.addEventListener("keyup", (e) => {
+				pressed.push(e.key);
+				pressed.splice(
+					-secretCode.length - 1,
+					pressed.length - secretCode.length
+				);
+				if (pressed.length == secretCode.length) {
+					if (pressed.every((value, index) => value === secretCode[index])) {
+						console.log(
+							"%cYou've Clicked the right algo!!!",
+							"font-size:2rem; padding: 1rem; background: red; color: white; border: 3px solid white; border-radius: 5px"
+						);
+						cornify_add();
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
